@@ -2,16 +2,18 @@
 
 > **Purpose:** Maintain the executable test cases, traceability, run results, and concise test-cycle summary for a feature or release. This document complements the **QA Test Plan**; it does not replace the defect tracker or store credentials.
 
+> **Draft status:** Items marked **[TBC]** are not yet known. No test cases, results, or metrics have been written yet; nothing has been executed.
+
 ## 1. Document control
 
 | Field | Value |
 |---|---|
-| Project / product | [Name] |
-| Release / feature | [Name] |
-| Related Test Plan ID | [TP-PROJECT-NNN] |
-| Test case set version | [Version] |
-| QA owner | [Name] |
-| Repository / tracker | [Link] |
+| Project / product | E-commerce QA portfolio (Practice Software Testing – Toolshop, https://practicesoftwaretesting.com) |
+| Release / feature | N/A |
+| Related Test Plan ID | TP-ECOMQA-001 |
+| Test case set version | 0.1 |
+| QA owner | Angelica Soete |
+| Repository / tracker | https://github.com/ctrl-angelica/ecommerce-qa-portfolio.git (defect tracker: GitHub Issues) |
 
 ## 2. Test case conventions
 
@@ -23,12 +25,14 @@
 - **P2 – Medium:** Standard functionality or moderate impact.
 - **P3 – Low:** Low-risk or cosmetic coverage.
 
-**Execution status:** `Not Run` · `Pass` · `Fail` · `Blocked` · `Not Applicable`  
+**Execution status:** `Not Run` · `Pass` · `Fail` · `Blocked` · `Not Applicable`
 Use **Blocked** when execution cannot proceed; include the reason. Use **Not Applicable** only with a brief explanation.
+
+**Modules in scope (from the Test Plan):** Login & registration · Catalogue, search & product details · Cart & promotions · Checkout, payment & orders. Module codes for IDs: [TBC: e.g. AUTH, CAT, CART, CHK].
 
 ## 3. Test case template
 
-Copy this section once per test case.
+Copy this section once per test case. *(No test cases written yet.)*
 
 ### TC-[MODULE]-[NNN] — [Short scenario name]
 
@@ -58,19 +62,21 @@ Copy this section once per test case.
 
 Use this as a prompt for designing test cases, not as proof that the feature is fully covered. Add cases based on requirements, risks, supported markets, payment methods, and business rules.
 
-| Area | Starter scenarios | Suggested priority |
-|---|---|---|
-| Registration / login | Valid and invalid login; registration validation; password reset; session expiry | P1 |
-| Catalogue / search | Product listing; search terms; no results; filters; sorting; pagination | P1–P2 |
-| Product details | Price; images; stock; variants; unavailable products | P1 |
-| Cart | Add / remove item; update quantity; stock changes; totals; persistence | P0–P1 |
-| Promotions | Valid / invalid / expired code; eligibility; stacking; calculation | P1–P2 |
-| Checkout | Guest and signed-in checkout; required fields; address validation; shipping options | P0 |
-| Payment | Approved, declined, cancelled, timed-out, and duplicate submission cases | P0 |
-| Orders | Order creation; confirmation; order history; status updates | P0–P1 |
-| Shipping | Shipping methods and fees; restricted destinations; tracking information | P1 |
-| Returns / refunds | Eligibility; return request; partial and full refund; status updates | P1 |
-| Account | Profile updates; saved addresses; consent and preferences | P1–P2 |
+Areas selected for this project are marked **In scope**; shipping, returns/refunds and account are **Out of scope**.
+
+| Area | Starter scenarios | Suggested priority | Project scope |
+|---|---|---|---|
+| Registration / login | Valid and invalid login; registration validation; password reset; session expiry | P1 | In scope |
+| Catalogue / search | Product listing; search terms; no results; filters; sorting; pagination | P1–P2 | In scope |
+| Product details | Price; images; stock; variants; unavailable products | P1 | In scope |
+| Cart | Add / remove item; update quantity; stock changes; totals; persistence | P0–P1 | In scope |
+| Promotions | Valid / invalid / expired code; eligibility; stacking; calculation | P1–P2 | In scope |
+| Checkout | Guest and signed-in checkout; required fields; address validation; shipping options | P0 | In scope |
+| Payment | Approved, declined, cancelled, timed-out, and duplicate submission cases | P0 | In scope |
+| Orders | Order creation; confirmation; order history; status updates | P0–P1 | In scope |
+| Shipping | Shipping methods and fees; restricted destinations; tracking information | P1 | Out of scope |
+| Returns / refunds | Eligibility; return request; partial and full refund; status updates | P1 | Out of scope |
+| Account | Profile updates; saved addresses; consent and preferences | P1–P2 | Out of scope |
 
 ## 5. Requirements traceability
 
@@ -78,7 +84,11 @@ Link each in-scope requirement to one or more test cases. This helps identify re
 
 | Requirement / story ID | Requirement summary | Test case IDs | Coverage status | Notes |
 |---|---|---|---|---|
-| [REQ-001] | [Summary] | [TC-...] | [Covered / Partial / Not covered] | [Gap or note] |
+| REQ-001 | Product listing shows each product's name and price | | Not covered | Draft; observed on the home page 2026-11-06 |
+| REQ-002 | Product listing is paginated | | Not covered | Draft; observed: 5 pages |
+| REQ-003 | Out-of-stock products are labelled as such in the listing | | Not covered | Draft; observed on "Long Nose Pliers" (label shown in Dutch because of browser language) |
+| REQ-004 | A filter control is available on the listing | | Not covered | Draft; filter options not yet explored |
+| REQ-005 – REQ-0xx | Login/registration, search, product details, cart, promotions, checkout, payment, orders | | Not covered | To be added by Angelica after her exploratory session (and from the API Swagger documentation). No behaviour assumed. |
 
 ## 6. Test execution log
 
@@ -86,9 +96,9 @@ Create a new run identifier for each build, cycle, or environment. Record one ro
 
 | Run ID | Test Case ID | Build / environment | Tester | Date | Status | Defect ID | Evidence link / notes |
 |---|---|---|---|---|---|---|---|
-| [RUN-001] | [TC-...] | [Build / QA] | [Name] | [YYYY-MM-DD] | [Status] | [BUG-...] | [Link / note] |
+| | | | | | | | |
 
-**Execution notes:** [Record run-specific constraints, data resets, interruptions, or deviations.]
+**Execution notes:** No tests executed yet.
 
 ## 7. Defect references
 
@@ -96,9 +106,11 @@ Keep full defect details in the team's issue tracker. Use this table only as a q
 
 | Defect ID | Related test case | Summary | Severity | Status | Tracker link |
 |---|---|---|---|---|---|
-| [BUG-001] | [TC-...] | [Short summary] | [Critical / High / Medium / Low] | [Open / In progress / Fixed / Closed] | [Link] |
+| | | | | | |
 
 ## 8. Test-cycle summary
+
+*To be completed after the first test cycle. No figures have been entered so none are invented.*
 
 **Run ID:** [RUN-XXX]  
 **Build / environment:** [Build and environment]  
@@ -142,4 +154,4 @@ Keep full defect details in the team's issue tracker. Use this table only as a q
 
 | Version | Date | Author | Change |
 |---|---|---|---|
-| 0.1 | [YYYY-MM-DD] | [Name] | Initial draft |
+| 0.1 | 2026-11-06 | Angelica Soete | Initial draft |
